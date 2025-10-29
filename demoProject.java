@@ -1,72 +1,79 @@
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.Scanner;
 
-class student_details{
-
+class StudentDetails {
+    // Future use
 }
-class digilocker{
 
-    //    long accountNumber;
-// JDBC Connection Details
+class Digilocker {
+
+    // JDBC Connection Details
     private static final String URL = "jdbc:mysql://localhost:3306/collage";
     private static final String USER = "root";
     private static final String PASSWORD = "Coder@1122";
-    void ragistration(){
 
+    void registration() {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter your id: ");
+        System.out.print("Enter your ID: ");
         String id = input.nextLine();
 
-        System.out.print("Enter your name: ");
+        System.out.print("Enter your Name: ");
         String name = input.nextLine();
 
-        System.out.print("Enter your branchName ");
+        System.out.print("Enter your Branch Name: ");
         String branch = input.nextLine();
 
-        System.out.print("Enter your age ");// consume newline
+        System.out.print("Enter your Age: ");
         String age = input.nextLine();
 
-        System.out.print("Enter your fatherName: ");
-        String fathername= input.nextLine();
+        System.out.print("Enter your Father's Name: ");
+        String fatherName = input.nextLine();
 
         // Save the data to the database
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
 
-            String sql = "INSERT INTO  student(id,name, branch, age, fathername) VALUES (?,?, ?, ?, ?)";
+            // ✅ INSERT Query
+            String sql = "INSERT INTO student (id, name, branch, age, fathername) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement statement = connection.prepareStatement(sql);
 
             statement.setString(1, id);
             statement.setString(2, name);
             statement.setString(3, branch);
             statement.setString(4, age);
-            statement.setString(5, fathername);
+            statement.setString(5, fatherName);
 
             int rowsInserted = statement.executeUpdate();
 
             if (rowsInserted > 0) {
-                System.out.println("✅ ragistration is successful " + name);
+                System.out.println("\n✅ Registration successful for " + name + "!");
             } else {
-                System.out.println("⚠ Failed to create account. Try again.");
+                System.out.println("\n⚠ Registration failed. Try again.");
+            }
+
+            // ✅ Optionally show all students after registration
+            String viewQuery = "SELECT * FROM student";
+            Statement viewStmt = connection.createStatement();
+            ResultSet rs = viewStmt.executeQuery(viewQuery);
+
+            System.out.println("\n--- Student Records ---");
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getString("id") +
+                        ", Name: " + rs.getString("name") +
+                        ", Branch: " + rs.getString("branch") +
+                        ", Age: " + rs.getString("age") +
+                        ", Father: " + rs.getString("fathername"));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        input.close();
-
     }
 }
-class CurrencySupport{
 
-}
-
-public class demoProject{
+public class demoProject {
     public static void main(String[] args) {
-        digilocker BC = new digilocker();
-        BC.ragistration();
+        Digilocker bc = new Digilocker();
+        bc.registration();
     }
 }
