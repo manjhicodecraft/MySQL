@@ -1,0 +1,23 @@
+# How to Create SQL Database Using Commands
+
+**SHOW DATABASES;**
+_Show all databases_
+
+**SHOW TABLES;**
+_Show all tables in the selected database_
+
+**CREATE DATABASE database_name;**
+_Create a new database_
+
+**USE database_name;**
+_Select and use a specific database_
+
+**CREATE TABLE table_name (column1 datatype, column2 datatype, column3 datatype);**
+_Create a new table with specified columns and data types_
+
+**INSERT INTO table_name VALUES (value1, value2, value3);**
+_Insert values into a table_
+
+**SELECT * FROM table_name;**
+_Display all records from a table_
+
