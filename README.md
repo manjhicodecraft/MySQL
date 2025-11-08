@@ -1,4 +1,4 @@
-                                                **MYSQL + JAVA**
+                                                
 
 # 💻 **Java + MySQL (JDBC) — Student Registration System** 🧑‍🎓
 
