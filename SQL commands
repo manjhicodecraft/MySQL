@@ -37,4 +37,11 @@ CREATE TABLE example (
 --DESCRIBE YOUR TABLE
 Describe table_name;
 
+select * from table_name where column_name like "startingword%";
+select * from table_name where column_name like "%endingword";
+select * from table_name where column_name like "___3 words latterword%";
+select * from table_name where column_name like "%any%";
+select * from table_name where column_name like "word";
+write a letter to find a releted result
+
 
