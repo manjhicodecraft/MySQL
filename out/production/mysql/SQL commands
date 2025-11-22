@@ -1,24 +1,47 @@
 # How to Create SQL Database Using Commands
 
-**SHOW DATABASES;**
-_Show all databases_
+-- SHOW ALL DATABASES
+SHOW DATABASES;
 
-**SHOW TABLES;**
-_Show all tables in the selected database_
+-- SHOW ALL TABLES IN THE SELECTED DATABASE
+SHOW TABLES;
 
-**CREATE DATABASE database_name;**
-_Create a new database_
+-- CREATE A NEW DATABASE
+CREATE DATABASE database_name;
 
-**USE database_name;**
-_Select and use a specific database_
+-- SELECT AND USE A SPECIFIC DATABASE
+USE database_name;
 
-**CREATE TABLE table_name (column1 datatype, column2 datatype, column3 datatype);**
-_Create a new table with specified columns and data types_
+-- CREATE A NEW TABLE WITH SPECIFIED COLUMNS AND DATA TYPES
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype
+);
 
-**INSERT INTO table_name VALUES (value1, value2, value3);**
-_Insert values into a table_
+-- INSERT VALUES INTO A TABLE
+INSERT INTO table_name VALUES (value1, value2, value3);
 
-**SELECT * FROM table_name;**
-_Display all records from a table_
+-- DISPLAY ALL RECORDS FROM A TABLE
+SELECT * FROM table_name;
+
+-- RENAME A COLUMN IN A TABLE
+ALTER TABLE table_name RENAME COLUMN old_name TO new_name;
+
+-- AUTO_INCREMENT EXAMPLE
+CREATE TABLE example (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+);
+
+--DESCRIBE YOUR TABLE
+Describe table_name;
+
+select * from table_name where column_name like "startingword%";
+select * from table_name where column_name like "%endingword";
+select * from table_name where column_name like "___3 words latterword%";
+select * from table_name where column_name like "%any%";
+select * from table_name where column_name like "word";
+write a letter to find a releted result
 
 
